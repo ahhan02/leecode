@@ -5,7 +5,8 @@ using namespace std;
 
 void backtrack(vector<string>& ans, string cur,
     int open, int close, int max) {
-  // cout << "cur: " << cur << endl;
+  cout << "cur: " << cur << " open: " << open <<
+    " close: " << close << endl;
 
   if (cur.size() == 2 * max) {
     ans.push_back(cur);
