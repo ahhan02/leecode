@@ -7,7 +7,7 @@ struct ListNode {
   ListNode(int x) : val(x), next(NULL) {}
 };
 
-ListNode* swapPairs(ListNode* head) {
+ListNode* swapPairs1(ListNode* head) {
   ListNode* dummy = new ListNode(0);
   dummy->next = head;
   ListNode* pre = dummy;
@@ -24,6 +24,22 @@ ListNode* swapPairs(ListNode* head) {
   }
 
   return dummy->next;
+}
+
+ListNode* swapPairs(ListNode* head) {
+  if (!head || !head->next) {
+    return head;
+  }
+
+  ListNode* p = head->next;
+  ListNode* r = p->next;
+
+  ListNode* s = swapPairs(r);
+
+  p->next = head;
+  head->next = s;
+
+  return p;
 }
 
 int main() {
