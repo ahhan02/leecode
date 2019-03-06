@@ -1,7 +1,12 @@
 #include <iostream>
+#include <bitset>
 using namespace std;
 
-bool isPowerOfTwo(int n) {
+bool isPowerOfTwo1(int n) {
+  if (n <= 0) {
+    return false;
+  }
+
   if (n == 1) {
     return true;
   }
@@ -15,6 +20,24 @@ bool isPowerOfTwo(int n) {
   // cout << "cnt: " << cnt << endl;
 
   return cnt == 1 ? true : false;
+}
+
+bool isPowerOfTwo2(int n) {
+  if (n <= 0) {
+    return false;
+  }
+
+  return n & n-1 ? false : true;
+}
+
+bool isPowerOfTwo(int n) {
+  if (n <= 0) {
+    return false;
+  }
+
+  bitset<32> bsn(n);
+  cout << bsn.count() << endl;
+  return bsn.count() == 1 ? true : false;
 }
 
 int main() {
