@@ -19,7 +19,7 @@ int rangeBitwiseAnd1(int m, int n) {
   return res;
 }
 
-int rangeBitwiseAnd1(int m, int n) {
+int rangeBitwiseAnd2(int m, int n) {
   int offset = 0;
   while (m != n) {
     m >>= 1;
@@ -28,6 +28,14 @@ int rangeBitwiseAnd1(int m, int n) {
   }
 
   return m << offset;
+}
+
+int rangeBitwiseAnd(int m, int n) {
+  while (n > m) {
+    n &= (n - 1);
+  }
+
+  return n;
 }
 
 int main() {
